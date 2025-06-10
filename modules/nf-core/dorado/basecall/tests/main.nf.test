@@ -11,6 +11,8 @@ nextflow_process {
 
     test("sarscov2 - basecall - ubam") {
 
+        config "./nextflow.config"
+
         when {
             process {
                 """
