@@ -20,7 +20,7 @@ nextflow_process {
                     [ id:'test', single_end:false ], // meta map
                     file(params.modules_testdata_base_path + 'genomics/sarscov2/nanopore/pod5/test.pod5', checkIfExists: true),
                 ]
-                input[1] = 'hac'
+                input[1] = 'sup'
                 input[2] = false
                 """
             }
@@ -46,7 +46,7 @@ nextflow_process {
                     [ id:'test', single_end:false ], // meta map
                     file(params.modules_testdata_base_path + 'genomics/sarscov2/nanopore/pod5/test.pod5', checkIfExists: true),
                 ]
-                input[1] = 'hac'
+                input[1] = 'sup'
                 input[2] = false
                 """
             }
@@ -72,7 +72,7 @@ nextflow_process {
                     [ id:'test', single_end:false ], // meta map
                     file(params.modules_testdata_base_path + 'genomics/sarscov2/nanopore/pod5/test.pod5', checkIfExists: true),
                 ]
-                input[1] = 'hac'
+                input[1] = 'sup'
                 input[2] = false
                 """
             }
