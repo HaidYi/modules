@@ -1,0 +1,114 @@
+nextflow_process {
+
+    name "Test Process DORADO_BASECALL"
+    script "../main.nf"
+    process "DORADO_BASECALL"
+
+    tag "modules"
+    tag "modules_nfcore"
+    tag "dorado"
+    tag "dorado/basecall"
+
+    test("sarscov2 - basecall - ubam") {
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/nanopore/pod5/test.pod5', checkIfExists: true),
+                ]
+                input[1] = 'hac'
+                input[2] = false
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - basecall - fastq") {
+
+        config "./nextflow_fastq.config"
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/nanopore/pod5/test.pod5', checkIfExists: true),
+                ]
+                input[1] = 'hac'
+                input[2] = false
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - basecall - sam") {
+
+        config "./nextflow_sam.config"
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/nanopore/pod5/test.pod5', checkIfExists: true),
+                ]
+                input[1] = 'hac'
+                input[2] = false
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - bam - stub") {
+
+        options "-stub"
+
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id:'test', single_end:false ], // meta map
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/nanopore/pod5/test.pod5', checkIfExists: true),
+                ]
+                input[1] = 'hac'
+                input[2] = false
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}

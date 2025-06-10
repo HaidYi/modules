@@ -1,0 +1,88 @@
+---
+name: "dorado_basecall"
+description: Basecalling of Oxford Nanopore reads using Dorado
+keywords:
+  - basecalling
+  - nanopore
+  - ont
+  - dorado
+  - pod5
+  - gpu
+tools:
+  - "dorado":
+      description: |
+        Dorado is a high-performance, easy-to-use, open source basecaller for Oxford Nanopore reads.
+      homepage: https://github.com/nanoporetech/dorado
+      documentation: https://dorado-docs.readthedocs.io/en/latest/
+      licence: ["Oxford Nanopore Technologies PLC. Public License, v. 1.0."]
+      identifier: ""
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1' ]`
+
+    - pod5s:
+        type: file
+        description: List of input POD5 files for basecalling.
+        pattern: "*.{pod5}"
+
+  - - model_complex:
+        type: string
+        description: |
+          Dorado model for basecalling (e.g., 'hac,5mCG_5hmCG@v3').
+          For the full model list, refer to https://dorado-docs.readthedocs.io/en/latest/models/complex/.
+
+  - - is_duplex:
+        type: boolean
+        description: Whether to perform duplex basecalling.
+
+output:
+  - ubam:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+
+      - "*.ubam":
+          type: file
+          description: Unaligned BAM file (default output format)
+          pattern: "*.{ubam}"
+
+  - fastq:
+      - meta:
+          type: file
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+
+      - "*.fastq.gz":
+          type: file
+          description: FASTQ file (when --emit-fastq is used)
+          pattern: "*.{fastq.gz}"
+
+  - sam:
+      - meta:
+          type: file
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1' ]`
+
+      - "*.sam":
+          type: file
+          description: SAM file (when --emit-sam is used)
+          pattern: "*.{sam}"
+
+  - versions:
+      - "versions.yml":
+          type: file
+          description: File containing software versions
+          pattern: "versions.yml"
+
+authors:
+  - "@haidyi"
+maintainers:
+  - "@haidyi"
