@@ -8,21 +8,6 @@ nextflow_process {
     tag "modules_nfcore"
     tag "slamdunk"
     tag "slamdunk/all"
-    tag "gunzip"
-
-    setup {
-        run("GUNZIP") {
-            script "../../../gunzip/main.nf"
-            process {
-                """
-                input[0] = [
-                    [ id:'test_ref' ],
-                    file('https://raw.githubusercontent.com/nf-core/test-datasets/slamseq/reference/hg38_chr8.fa.gz', checkIfExists: true)
-                ]
-                """
-            }
-        }
-    }
 
     test("slamseq - fastq") {
 
@@ -31,12 +16,15 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test', single_end:true ], // meta map
-                    file('https://raw.githubusercontent.com/nf-core/test-datasets/slamseq/testdata/MOLM-13_dmso_1_chr8.fastq.gz', checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true)
                 ]
-                input[1] = GUNZIP.out.gunzip
+                input[1] = [
+                    [ id:'test_ref' ],
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
+                ]
                 input[2] = [
                     [ id:'test_bed' ],
-                    file('https://raw.githubusercontent.com/nf-core/test-datasets/slamseq/reference/hg38_refseq_3UTR.chr8.bed', checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/bed/test.bed', checkIfExists: true)
                 ]
                 input[3] = [[], []]
                 """
@@ -70,15 +58,15 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test', single_end:true ], // meta map
-                    file('https://raw.githubusercontent.com/nf-core/test-datasets/slamseq/testdata/MOLM-13_dmso_1_chr8.fastq.gz', checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/illumina/fastq/test_1.fastq.gz', checkIfExists: true)
                 ]
                 input[1] = [
                     [ id:'test_ref' ],
-                    file('https://raw.githubusercontent.com/nf-core/test-datasets/slamseq/reference/hg38_chr8.fa.gz', checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/genome.fasta', checkIfExists: true)
                 ]
                 input[2] = [
                     [ id:'test_bed' ],
-                    file('https://raw.githubusercontent.com/nf-core/test-datasets/slamseq/reference/hg38_refseq_3UTR.chr8.bed', checkIfExists: true)
+                    file(params.modules_testdata_base_path + 'genomics/sarscov2/genome/bed/test.bed', checkIfExists: true)
                 ]
                 input[3] = [[], []]
                 """
