@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "slamdunk_all"
-description: Complete SLAMseq analysis pipeline including read mapping, filtering, SNP calling, and quantification
+description: Complete SLAMseq analysis pipeline including read mapping, filtering,
+  SNP calling, and quantification
 keywords:
   - slamseq
   - rna-seq
@@ -9,7 +10,9 @@ keywords:
   - quantification
 tools:
   - "slamdunk":
-      description: "Slamdunk is a software tool for SLAMseq data analysis that performs mapping, filtering, SNP calling, and quantification of metabolic RNA labeling experiments."
+      description: "Slamdunk is a software tool for SLAMseq data analysis that performs
+        mapping, filtering, SNP calling, and quantification of metabolic RNA labeling
+        experiments."
       homepage: "http://t-neumann.github.io/slamdunk/docs.html"
       documentation: "http://t-neumann.github.io/slamdunk/docs.html"
       tool_dev_url: "https://github.com/t-neumann/slamdunk"

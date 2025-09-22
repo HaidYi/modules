@@ -2,31 +2,13 @@
     "slamseq - fastq - stub": {
         "content": [
             [
-                [
-                    {
-                        "id": "test",
-                        "single_end": true
-                    },
-                    "test.bam:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ]
+                "test.bam"
             ],
             [
-                [
-                    {
-                        "id": "test",
-                        "single_end": true
-                    },
-                    "test_filtered.bam:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ]
+                "test_filtered.bam"
             ],
             [
-                [
-                    {
-                        "id": "test",
-                        "single_end": true
-                    },
-                    "test_filtered.bam.bai:md5,d41d8cd98f00b204e9800998ecf8427e"
-                ]
+                "test_filtered.bam.bai"
             ],
             [
                 [
@@ -70,9 +52,9 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "25.04.6"
+            "nextflow": "24.10.4"
         },
-        "timestamp": "2025-08-26T16:43:18.409251756"
+        "timestamp": "2025-09-22T15:15:07.441912"
     },
     "slamseq - fastq": {
         "content": [
