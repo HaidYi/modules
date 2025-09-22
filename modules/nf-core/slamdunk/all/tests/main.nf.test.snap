@@ -77,13 +77,13 @@
     "slamseq - fastq": {
         "content": [
             [
-                "MOLM-13_dmso_1_chr8.fastq_slamdunk_mapped.bam"
+                "test_1.fastq_slamdunk_mapped.bam"
             ],
             [
-                "MOLM-13_dmso_1_chr8.fastq_slamdunk_mapped_filtered.bam"
+                "test_1.fastq_slamdunk_mapped_filtered.bam"
             ],
             [
-                "MOLM-13_dmso_1_chr8.fastq_slamdunk_mapped_filtered.bam.bai"
+                "test_1.fastq_slamdunk_mapped_filtered.bam.bai"
             ],
             [
                 [
@@ -91,7 +91,7 @@
                         "id": "test",
                         "single_end": true
                     },
-                    "MOLM-13_dmso_1_chr8.fastq_slamdunk_mapped_filtered_snp.vcf:md5,2cc1e6d8cffa667695569befa3e18f5b"
+                    "test_1.fastq_slamdunk_mapped_filtered_snp.vcf:md5,392b713d37020f032f5a03cb2a38f8c6"
                 ]
             ],
             [
@@ -100,7 +100,7 @@
                         "id": "test",
                         "single_end": true
                     },
-                    "MOLM-13_dmso_1_chr8.fastq_slamdunk_mapped_filtered_tcount.tsv:md5,e781bdd472b9e74f5ef7f2c3fb541de0"
+                    "test_1.fastq_slamdunk_mapped_filtered_tcount.tsv:md5,dbe22b81b5eff6aa30af7ea69f266116"
                 ]
             ],
             [
@@ -109,7 +109,7 @@
                         "id": "test",
                         "single_end": true
                     },
-                    "MOLM-13_dmso_1_chr8.fastq_slamdunk_mapped_filtered_tcount_plus.bedgraph:md5,18effe2a1426bf77e7ad1032c03c98ff"
+                    "test_1.fastq_slamdunk_mapped_filtered_tcount_plus.bedgraph:md5,4c9cd48676bb947ca8381bc45178ae30"
                 ]
             ],
             [
@@ -118,7 +118,7 @@
                         "id": "test",
                         "single_end": true
                     },
-                    "MOLM-13_dmso_1_chr8.fastq_slamdunk_mapped_filtered_tcount_mins.bedgraph:md5,72e78fac0970f541a98fd1be39adacec"
+                    "test_1.fastq_slamdunk_mapped_filtered_tcount_mins.bedgraph:md5,d41d8cd98f00b204e9800998ecf8427e"
                 ]
             ],
             [
@@ -129,6 +129,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-08-26T16:43:10.181013436"
+        "timestamp": "2025-09-22T16:05:21.093906123"
     }
 }
