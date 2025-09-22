@@ -8,7 +8,7 @@ nextflow_process {
     tag "modules_nfcore"
     tag "slamdunk"
     tag "slamdunk/all"
-    tag "bedops_gtf2bed"
+    tag "bedops/gtf2bed"
 
     setup {
         run("BEDOPS_GTF2BED") {
