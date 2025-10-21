@@ -4,7 +4,7 @@ process MUTATIONALPATTERN {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'oras://community.wave.seqera.io/library/bioconductor-mutationalpatterns:3.10.0--eeba5035e7028aa4':
+        'oras://community.wave.seqera.io/library/bioconductor-mutationalpatterns_r-biocmanager:81c7d2739eed68a7':
         'community.wave.seqera.io/library/bioconductor-mutationalpatterns_r-biocmanager:b3aab5922ca450c5' }"
 
     input:
