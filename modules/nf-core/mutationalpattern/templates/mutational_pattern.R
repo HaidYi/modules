@@ -17,6 +17,8 @@ library(ref_genome, character.only = TRUE)
 library(cowplot)
 library(ggplot2)
 
+set.seed(42)
+
 vc_file <- "${vcf}"
 sample_name <- ifelse('$task.ext.prefix' == 'null', '$meta.id', '$task.ext.prefix')
 max_delta <- as.numeric("${max_delta}")
@@ -91,7 +93,6 @@ ggsave(paste0(sample_name, ".mutation_profile.pdf"), combined_plot, width=16, he
 writeLines(
     c(
         '"${task.process}":',
-        paste('    r:', paste(version\$major, version\$minor, sep = ".")),
         paste('    mutationalpattern:', as.character(packageVersion('MutationalPatterns'))),
         paste('    cowplot:', as.character(packageVersion('cowplot'))),
         paste('    ggplot2:', as.character(packageVersion('ggplot2')))
