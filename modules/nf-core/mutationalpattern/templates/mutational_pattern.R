@@ -31,7 +31,7 @@ muts <- mutations_from_vcf(vcf_grl[[1]])
 
 type_occurences <- mut_type_occurrences(vcf_grl[[1]], ref_genome)
 # Write to file
-write.table(type_occurences, file = paste0(sample_name, ".type_occurences.tsv"), sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
+write.table(type_occurences, file = paste0(sample_name, ".type_occurences.tsv"), sep = "\\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
 
 mut_mat <- mut_matrix(vcf_list = vcf_grl, ref_genome = ref_genome)
 
@@ -45,7 +45,7 @@ rownames(fit_res\$fit_res\$reconstructed) <- rownames(mut_mat)
 write.table(
     fit_res_bs,
     file = paste0(sample_name, ".mut_sigs_bootstrapped.tsv"),
-    sep = "\t",
+    sep = "\\t",
     quote = FALSE,
     row.names = TRUE, col.names = NA
     )
@@ -54,7 +54,7 @@ write.table(
 write.table(
     fit_res\$fit_res\$contribution[order(fit_res\$fit_res\$contribution, decreasing = TRUE),,drop=FALSE],
     file = paste0(sample_name, ".mut_sigs.tsv"),
-    sep = "\t",
+    sep = "\\t",
     quote = FALSE,
     row.names = TRUE, col.names = NA
     )
@@ -63,7 +63,7 @@ write.table(
 write.table(
     fit_res\$fit_res\$reconstructed,
     file = paste0(sample_name, ".reconstructed_sigs.tsv"),
-    sep = "\t",
+    sep = "\\t",
     quote = FALSE,
     row.names = TRUE, col.names = NA
     )
@@ -88,8 +88,6 @@ combined_plot <- plot_grid(
 ggsave(paste0(sample_name, ".mutation_profile.pdf"), combined_plot, width=16, height=8, useDingbats=FALSE)
 
 # versions file
-r.version <- strsplit(version[['version.string']], ' ')[[1]][3]
-
 writeLines(
     c(
         '"${task.process}":',
